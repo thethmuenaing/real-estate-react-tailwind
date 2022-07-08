@@ -102,16 +102,18 @@ const HouseContextProvider = ({ children }) => {
 			}
 
 			//if property and price is not default
-			if (!isDefault(country) && !isDefault(property) && !isDefault(price)) {
+			if (isDefault(country) && !isDefault(property) && !isDefault(price)) {
 				if (housePrice >= minPrice && housePrice <= maxPrice) {
 					return house.type === property;
 				}
 			}
 		});
 		setTimeout(() => {
-			return newHouses.length < 1 ? setHouses([]) : setHouses(newHouses);
-			setLoading(false);
-		});
+			return (
+				newHouses.length < 1 ? setHouses([]) : setHouses(newHouses),
+				setLoading(false)
+			);
+		}, 1000);
 	};
 
 	return (
@@ -132,6 +134,7 @@ const HouseContextProvider = ({ children }) => {
 				loading,
 				setLoading,
 				handleClick,
+				loading,
 			}}
 		>
 			{children}
