@@ -77,6 +77,7 @@ const PropertyDetails = () => {
 								</Link>
 							</div>
 						</div>
+
 						{/* form */}
 						<form className="flex flex-col gap-y-4">
 							<input
