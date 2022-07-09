@@ -36,7 +36,7 @@ const HouseContextProvider = ({ children }) => {
 		});
 
 		//remove duplicates
-		const uniqueProperties = ["Location (any)", ...new Set(allProperties)];
+		const uniqueProperties = ["Property type (any)", ...new Set(allProperties)];
 
 		//set properties state
 		setProperties(uniqueProperties);
@@ -58,11 +58,12 @@ const HouseContextProvider = ({ children }) => {
 
 		const newHouses = housesData.filter((house) => {
 			const housePrice = parseInt(house.price);
-
+			//all values are selected
 			if (
 				house.country === country &&
 				house.type === property &&
-				housePrice >= minPrice
+				housePrice >= minPrice &&
+				housePrice <= maxPrice
 			) {
 				return house;
 			}
@@ -122,19 +123,14 @@ const HouseContextProvider = ({ children }) => {
 				country,
 				setCountry,
 				countries,
-				setCountries,
 				property,
 				setProperty,
 				properties,
-				setProperties,
 				price,
 				setPrice,
 				houses,
-				setHouses,
 				loading,
-				setLoading,
 				handleClick,
-				loading,
 			}}
 		>
 			{children}
