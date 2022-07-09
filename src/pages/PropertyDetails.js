@@ -64,6 +64,51 @@ const PropertyDetails = () => {
 						</div>
 						<div>{house.description}</div>
 					</div>
+
+					<div className="flex-1 bg-white w-full mb-8 border border-gray-300 rounded-lg px-6 py-8">
+						<div className="flex items-center gap-x-4 mb-8">
+							<div className="w-20 h-20 p-1 border border-gray-300 rounded-full">
+								<img src={house.agent.image} alt="/" />
+							</div>
+							<div>
+								<div className="font-bold text-lg">{house.agent.name}</div>
+								<Link to="" className="text-violet-700 text-sm">
+									View Listing
+								</Link>
+							</div>
+						</div>
+						{/* form */}
+						<form className="flex flex-col gap-y-4">
+							<input
+								type="text"
+								className="border border-gray-300 focus:border-violet-500 outline-none rounded w-full px-4 h-14 text-sm"
+								placeholder="Name *"
+							/>
+							<input
+								type="text"
+								className="border border-gray-300 focus:border-violet-500 outline-none rounded w-full px-4 h-14 text-sm"
+								placeholder="Email *"
+							/>
+							<input
+								type="text"
+								className="border border-gray-300 focus:border-violet-500 outline-none rounded w-full px-4 h-14 text-sm"
+								placeholder="Phone *"
+							/>
+							<textarea
+								className="border border-gray-300 focus:border-violet-700 outline-none rounded w-full p-4 h-36 text-sm text-gray-400"
+								placeholder="Message *"
+								defaultValue="Hello, I am interested in [Modern apartment]"
+							></textarea>
+							<div className="flex gap-x-2">
+								<button className="bg-violet-700 hover:bg-violet-800 text-white rounded p-4 text-sm w-full transition">
+									Sent message
+								</button>
+								<button className="border border-violet-700 text-violet-700 hover:border-violet-500 hover:text-violet-500 rounded p-4 text-sm w-full transition">
+									Call
+								</button>
+							</div>
+						</form>
+					</div>
 				</div>
 			</div>
 		</section>
